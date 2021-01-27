@@ -12,6 +12,9 @@ import * as abiLib  from '../actions/template/abi-utils/abi-lib';
 import { DialogsActionTypes } from '../actionTypes/dialogs';
 // import { PAIDTokenContract } from '../../contracts/paidtoken';
 import { STORAGE_KEY_MY_INFO_KEPT } from '../../utils/constants';
+import { fromAscii } from 'web3-utils';
+import { from } from 'rxjs'
+import { retry, timeout } from 'rxjs/operators'
 
 const { Storage } = Plugins;
 const uint8ArrayToString = require('uint8arrays/to-string');
@@ -22,6 +25,7 @@ const fetch = require('node-fetch');
 const axios = require('axios');
 const ipfsnode = `${process.env.REACT_APP_IPFS_PAID_HOST}`;
 const sigUtil = require('eth-sig-util')
+
 
 // TODO: Fix
 const ipfs = ipfsClient({ host: ipfsnode, port: '5001', protocol: 'https', apiPath: '/api/v0' });
@@ -243,6 +247,28 @@ export const doCreateAgreement = (payload: {
 			null,
 			'0x' + digest);
 		// estimategas for Create Smart Agreements
+/*		const gas = await methodFn.estimateGas();
+
+		debugger;
+		const agreementTransaction = await methodFn.send({ from: address, gas:gas+5e4, gasPrice: 50e9 })
+		const tx_transactionHash = agreementTransaction.transactionHash;
+
+		const tx_confirmedTransaction = await confirmeTransaction(web3,tx_transactionHash).toPromise();
+		axios.post(apiUrl+'email/new-agreement', {
+			'counterParty': {
+				name: agreementForm.counterpartyName,
+				email: agreementForm.counterpartyEmail
+			},
+			'party':{
+				'name': agreementForm.name
+			}
+		})
+		.catch(function (error) {
+			console.log('email error: ',error);
+		});
+		dispatch(createAgreement());
+		dispatch(openSuccessDialog('You have created an agreement successfully'));
+		slideNext();*/
 		const gas = await methodFn.estimateGas().then(async (gas:any) => {
 			const agreementTransaction = await methodFn.send({ from: address, gas:gas+5e4, gasPrice: 50e9 })
 			.on('receipt', async function (receipt: any) {
@@ -268,8 +294,8 @@ export const doCreateAgreement = (payload: {
 				// throw new Error('Transaction failed');
 			});
 		});
+
 	} catch (err) {
-		await payload.slideBack();
 		dispatch(openErrorDialog('The agreement was not created successfully'));
 		console.log('The agreement was not created successfully', err.message);
 		dispatch({
@@ -278,6 +304,24 @@ export const doCreateAgreement = (payload: {
 		});
 	}
 };
+
+export const confirmeTransaction = (web3,tx_transactionHash) => {
+	const obj = new Promise(async (reject,resolve) => {
+		while(true){
+			const transactionsArray = await web3.eth.getPendingTransactions();
+			
+			if(transactionsArray.find(i => i.hash !== tx_transactionHash)){
+				resolve(
+					web3.eth.getTransaction(tx_transactionHash)
+				);
+
+			}
+		}
+	});
+	return from(obj).pipe(
+		timeout(25000), retry(3)
+	);
+}
 
 export const uploadsIPFS = async (ipfs: any, blobContent: any, opts: any,
 	_digest: string, sigArray: any, _docId: any, counterpartyAddress: string,
