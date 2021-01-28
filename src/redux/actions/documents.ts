@@ -193,7 +193,8 @@ export const doCreateAgreement = (payload: {
 				throw new Error('The wallet should has balance to send a transaction.');
 			}
 		})
-		const form = web3.utils.sha3(createAgreementFormPayload(agreementForm));
+		// const form = web3.utils.sha3(createAgreementFormPayload(agreementForm));
+		const form = web3.utils.sha3('form');
 
 		// ALICE SIDE
 		// const content = template();
@@ -244,7 +245,7 @@ export const doCreateAgreement = (payload: {
 			agreementForm.counterpartyWallet,
 			ipfsHash.toString(),
 			formId,
-			null,
+			form,
 			'0x' + digest);
 		// estimategas for Create Smart Agreements
 /*		const gas = await methodFn.estimateGas();
@@ -646,7 +647,6 @@ export const doSignCounterpartyDocument = (document: any) => async (dispatch: an
 			let metodoTkn:any;
 			let allow:any;
 			// const paymentSA = web3.utils.toWei(pago, 'ether');
-			debugger
 			if (selectedToken === 'paid') {
 				if (balancePaid < paymentSA) {
 					dispatch(openErrorDialog('You have not enough balance to perform this action'));
