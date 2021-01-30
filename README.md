@@ -45,3 +45,8 @@ npm start
 ```
 
 To create or sign Agreements make sure to have PAID tokens balance
+
+### Change Log
+* Web3 Provider
+* Ethers Provider
+* Onboard.js Library
