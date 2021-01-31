@@ -603,6 +603,12 @@
                 &.item-checkbox {
                     margin: 25px 0;
                 }
+
+                .item-checklist {
+                    :host(.in-item[slot="start"]) {
+                        margin-top: 27px;
+                    }
+                }
         
                 input {
                     border: 1px solid $grey-border !important;
