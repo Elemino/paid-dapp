@@ -268,7 +268,7 @@ const ConsultingAgreementForm: FC<{
             const { currentTarget } = event;
             const { name, value } = currentTarget;
             consultingAgreementData[name] = value;
-            if (name === 'companiesExcluded' && value === VALUE_LIST) {
+            if (name === 'companiesExcluded' && value !== VALUE_LIST) {
                 consultingAgreementData.listCompanies = '';
             }
             dispatch(doSetConsultingAgreementData({

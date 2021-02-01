@@ -112,7 +112,7 @@ export const ConsultingAgreement = `<div class="contract" style="width: 100%; ba
 <p align="center"><strong>COMPENSATION</strong></p>
 <p>Check applicable payment terms:</p>
 <div style="display: block; background-color:#f79632; width: 100%; overflow-wrap: break-word;">
-<span>[ {{serviceRenderChecked}} ]</span> <span>{{serviceRender}}.</span>
+<span>[ {{serviceRenderChecked}} ]</span> <span>{{serviceRender}}</span>
 <p>[ {{consultantChecked}} ] {{consultanShall}}</p>
 <p>[ {{companyWillChecked}} ] {{companyWillRecommend}}</p>
 <p>[ {{otherChecked}} ] Other:</p>
