@@ -179,10 +179,10 @@ const Documents: React.FC = () => {
 		else{
 			history.push('/');
 		}
-		if (currentWallet?.network != "rinkeby") {
-			dispatch(openErrorDialog('You are in a Demo MVP, only Create Smart Agreements in Rinkeby'));
-			history.push('/');
-		}
+		// if (currentWallet?.network != "rinkeby") {
+		// 	dispatch(openErrorDialog('You are in a Demo MVP, only Create Smart Agreements in Rinkeby'));
+		// 	history.push('/');
+		// }
 		setShowPopover(show);
 	}
 
