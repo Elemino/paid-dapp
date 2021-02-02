@@ -1,5 +1,6 @@
 import AdvisorAgreementData from "../../models/AdvisorAgreementData";
 import CiiaAgreementData from "../../models/CiiaAgreementData";
+import ConsultingAgreementData from "../../models/ConsultingAgreementData";
 import NdaAgreementData from "../../models/NdaAgreementData";
 import ReferralAgreementData from "../../models/ReferralAgreementData";
 import SaftAgreementData from "../../models/SaftAgreementData";
@@ -22,6 +23,13 @@ export const doSetAdvisorAgreementData = (payload: AdvisorAgreementData) => (dis
 export const doSetCiiaAgreementData = (payload: CiiaAgreementData) => (dispatch: any) => {
     dispatch({
         type: SmartAgreementsTypes.SET_CIIA_AGREEMENT_DATA,
+        payload
+    });
+}
+
+export const doSetConsultingAgreementData = (payload: ConsultingAgreementData) => (dispatch: any) => {
+    dispatch({
+        type: SmartAgreementsTypes.SET_CONSULTING_AGREEMENT_DATA,
         payload
     });
 }

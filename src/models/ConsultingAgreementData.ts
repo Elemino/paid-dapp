@@ -1,0 +1,24 @@
+export default interface ConsultingAgreementData {
+    partyName: string;
+    partyEmail: string;
+    partyAddress: string;
+    partyWallet: string;
+    date: string;
+    counterPartyName: string;
+    counterPartyEmail: string;
+    counterPartyAddress: string;
+    counterPartyWallet: string;
+    state: string;
+    typeOfCompany: string;
+    descriptionConsulting: string;
+    serviceRenderChecked: string;
+    serviceRender: string;
+    consultantChecked: string;
+    consultanShall: string;
+    companyWillChecked: string;
+    companyWillRecommend: string;
+    otherChecked: string;
+    other: string;
+    companiesExcluded: string;
+    listCompanies: string;
+};

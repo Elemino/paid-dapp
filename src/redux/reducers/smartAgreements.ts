@@ -1,6 +1,7 @@
 import ActionModel from "../../models/ActionModel";
 import AdvisorAgreementData from "../../models/AdvisorAgreementData";
 import CiiaAgreementData from "../../models/CiiaAgreementData";
+import ConsultingAgreementData from "../../models/ConsultingAgreementData";
 import NdaAgreementData from "../../models/NdaAgreementData";
 import ReferralAgreementData from "../../models/ReferralAgreementData";
 import SaftAgreementData from "../../models/SaftAgreementData";
@@ -10,6 +11,7 @@ interface SmartAgreementsState {
     ndaAgreementData: NdaAgreementData;
     advisorAgreementData: AdvisorAgreementData;
     ciiaAgreementData: CiiaAgreementData;
+    consultingAgreementData: ConsultingAgreementData;
     referralAgreementData: ReferralAgreementData;
     saftAgreementData: SaftAgreementData;
 };
@@ -71,6 +73,32 @@ const initialState: SmartAgreementsState = {
         stateCompany: '[STATE]',
         typeOfComapny: '[TYPE OF COMPANY]',
         listCompAgreements: '[LIST OF COMPANIES AND/OR AGREEMENTS EXCLUDED UNDER SECTION 10(B)]'
+    },
+    consultingAgreementData: {
+        partyName: '[________]',
+        partyEmail: '________',
+        partyAddress: '________',
+        partyWallet: '________',
+        date: '________',
+        counterPartyName: '________',
+        counterPartyEmail: '________',
+        counterPartyAddress: '________',
+        counterPartyWallet: '________',
+        state: '[STATE]',
+        typeOfCompany: '[TYPE OF COMPANY]',
+        descriptionConsulting: '[DESCRIPTION CONSULTING SERVICES]',
+        serviceRenderChecked: '',
+        serviceRender: 'For Services rendered by Consultant under this Agreement, the Company shall pay Consultant at the rate of $____ per hour, payable _______________.  Unless otherwise agreed upon in writing by Company, Company’s maximum liability for all Services performed during the term of this Agreement shall not exceed $____________.',
+        consultantChecked: '',
+        consultanShall: 'Consultant shall be paid $____________ upon the execution of this Agreement and $____________ upon completion of the Services specified on Exhibit A to this Agreement.',
+        companyWillChecked: '',
+        companyWillRecommend: 'The Company will recommend that the Board grant a non-qualified option to purchase _______ shares of the Company’s Common Stock, at an exercise price equal to the fair market value (as determined by the Company’s Board of Directors) on the date of grant, and which will vest and become exercisable as follows: \n\n' +
+        '____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________\n' +
+        '_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________.\n\n',
+        otherChecked: '',
+        other: '',
+        companiesExcluded: '___',
+        listCompanies: ''
     },
     referralAgreementData: {
         partyName: '[________]',
@@ -149,6 +177,15 @@ export const SmartAgreementsReducer = function (
                 ciiaAgreementData: {
                     ...state.ciiaAgreementData,
                     ...newCiiaData
+                }
+            };
+        case SmartAgreementsTypes.SET_CONSULTING_AGREEMENT_DATA:
+            const newConsultingData = payload;
+            return {
+                ...state,
+                consultingAgreementData: {
+                    ...state.consultingAgreementData,
+                    ...newConsultingData
                 }
             };
         case SmartAgreementsTypes.SET_REFERRAL_AGEEMENT_DATA:
