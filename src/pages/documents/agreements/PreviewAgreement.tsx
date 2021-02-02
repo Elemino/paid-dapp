@@ -57,7 +57,7 @@ const PreviewAgreement: FC<PreviewAgreementProps> = ({ current }) => {
     }, [currentWallet, agreementFormInfo]);
 
     const agreementTemplate = useCallback(() => {
-        return <TemplateComponent template={agreementDocument} data={agreementData} />;
+        return <div style={{width: '100%'}}><TemplateComponent template={agreementDocument} data={agreementData} /></div>;
     }, [agreementDocument, agreementData]);
 
     const slideNext = useCallback(async () => {

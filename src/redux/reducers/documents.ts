@@ -20,10 +20,10 @@ const initialState = {
 			code: 'ciia',
 			name: 'CIIA'
 		},
-		/*{
+		{
 			code: 'consultingAgreement',
 			name: 'Consulting'
-		},*/
+		},
 		{
 			code: 'referalAgreement',
 			name: 'Referral'

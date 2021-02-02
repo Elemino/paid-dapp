@@ -1,4 +1,4 @@
-export const ConsultingAgreement = `<div class="contract" style="width: 800px; background-color:white; color: black;"><h1 id="title" style="text-align: center;">CONSULTING AGREEMENT</h1><p align="center"><strong><span id="partyName">{{partyName}}</span></strong></p>
+export const ConsultingAgreement = `<div class="contract" style="width: 100%; background-color:white; color: black;"><h1 id="title" style="text-align: center;">CONSULTING AGREEMENT</h1><p align="center"><strong><span id="partyName">{{partyName}}</span></strong></p>
 <p align="center"><u><strong>CONSULTING AGREEMENT</strong></u></p>
 <p>This Consulting Agreement (this &ldquo;<u>Agreement</u>&rdquo;) is made as of {{date}}, by and between {{partyName}}, (the &ldquo;<u>Company</u>&rdquo;), and {{counterPartyName}}(&ldquo;<u>Consultant</u>&rdquo;).</p>
 <ol>
@@ -51,7 +51,7 @@ export const ConsultingAgreement = `<div class="contract" style="width: 800px; b
 <p><u><strong>Miscellaneous</strong></u><strong>.</strong></p>
 <ol type="a">
 <li>
-<p><u><strong>Governing Law</strong></u><strong>.</strong> The validity, interpretation, construction and performance of this Agreement, and all acts and transactions pursuant hereto and the rights and obligations of the parties hereto shall be governed, construed and interpreted in accordance with the laws of the state of [STATE], without giving effect to principles of conflicts of law.</p>
+<p><u><strong>Governing Law</strong></u><strong>.</strong> The validity, interpretation, construction and performance of this Agreement, and all acts and transactions pursuant hereto and the rights and obligations of the parties hereto shall be governed, construed and interpreted in accordance with the laws of the state of <div style="display: inline-block; background-color:#f79632">{{state}}</div>, without giving effect to principles of conflicts of law.</p>
 </li>
 <li>
 <p><u><strong>Entire Agreement</strong></u><strong>.</strong> This Agreement sets forth the entire agreement and understanding of the parties relating to the subject matter herein and supersedes all prior or contemporaneous discussions, understandings and agreements, whether oral or written, between them relating to the subject matter hereof.</p>
@@ -101,35 +101,23 @@ export const ConsultingAgreement = `<div class="contract" style="width: 800px; b
 <p class="western">&nbsp;</p>
 <p align="center"><u><strong>EXHIBIT A</strong></u></p>
 <p align="center"><strong>DESCRIPTION OF CONSULTING SERVICES</strong></p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
+<div style="display: inline-block; background-color:#f79632; width: 100%; text-align: center">
+<p style="white-space:break-spaces">{{descriptionConsulting}}</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p><br /> </p>
 <p><br /> </p>
+</div>
 <p align="center"><u><strong>EXHIBIT B</strong></u></p>
 <p align="center"><strong>COMPENSATION</strong></p>
 <p>Check applicable payment terms:</p>
-<p>[ ] For Services rendered by Consultant under this Agreement, the Company shall pay Consultant at the rate of $____ per hour, payable _______________. Unless otherwise agreed upon in writing by Company, Company&rsquo;s maximum liability for all Services performed during the term of this Agreement shall not exceed $____________.</p>
-<p>[ ] Consultant shall be paid $____________ upon the execution of this Agreement and $____________ upon completion of the Services specified on <u>Exhibit A</u> to this Agreement.</p>
-<p>[ ] The Company will recommend that the Board grant a non-qualified option to purchase _______ shares of the Company&rsquo;s Common Stock, at an exercise price equal to the fair market value (as determined by the Company&rsquo;s Board of Directors) on the date of grant, and which will vest and become exercisable as follows:</p>
-<p>&nbsp;</p>
-<p><u> . </u></p>
-<p>Upon mutual agreement between Consultant and the Company, such compensation may be issued in the form of a right to purchase restricted shares of the Company&rsquo;s Common Stock.</p>
-<p>[ ] Other:</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
+<div style="display: block; background-color:#f79632; width: 100%; overflow-wrap: break-word;">
+<span>[ {{serviceRenderChecked}} ]</span> <span>{{serviceRender}}</span>
+<p>[ {{consultantChecked}} ] {{consultanShall}}</p>
+<p>[ {{companyWillChecked}} ] {{companyWillRecommend}}</p>
+<p>[ {{otherChecked}} ] Other:</p>
+<p style="white-space:break-spaces">{{other}}</p>
+</div>
 <p align="center"><strong><u>EXHIBIT C</u></strong></p>
 <p align="center"><strong>Confidential information and<br /> invention assignment agreement</strong></p>
 <p class="western" align="center"><em>[See Attached]</em></p>
@@ -137,31 +125,12 @@ export const ConsultingAgreement = `<div class="contract" style="width: 800px; b
 <p align="center"><strong><u>EXHIBIT D</u></strong></p>
 <p align="center"><strong>LIST OF COMPANIES</strong></p>
 <p align="center"><strong>EXCLUDED UNDER SECTION&nbsp;8.</strong></p>
+<div style="display: inline-block; background-color:#f79632; width: 100%; text-align: center">
 <p class="western">&nbsp;</p>
+<p class="western" style="white-space:break-spaces">{{listCompanies}}</p>
 <p class="western">&nbsp;</p>
-<p class="western">&nbsp;</p>
-<p class="western">&nbsp;</p>
-<p class="western">&nbsp;</p>
-<p class="western">&nbsp;</p>
-<p class="western">&nbsp;</p>
-<p class="western">&nbsp;</p>
-<p class="western">&nbsp;</p>
-<p class="western">&nbsp;</p>
-<p class="western">&nbsp;</p>
-<p class="western">&nbsp;</p>
-<p class="western">&nbsp;</p>
-<p class="western">&nbsp;</p>
-<p class="western">&nbsp;</p>
-<p class="western">&nbsp;</p>
-<p class="western">&nbsp;</p>
-<p class="western">&nbsp;</p>
-<p class="western">&nbsp;</p>
-<p class="western">&nbsp;</p>
-<p class="western">&nbsp;</p>
-<p class="western">&nbsp;</p>
-<p class="western">&nbsp;</p>
-<p class="western">&nbsp;</p>
-<p>___ No conflicts</p>
+</div>
+<div style="display: inline-block; background-color:#f79632; width: 100%"><p><u>{{companiesExcluded}}</u> No conflicts</p></div>
 <p>___ Additional Sheets Attached</p>
 <p>Signature of Consultant: <u> </u></p>
 <p>Print Name of Consultant: <u> </u></p>

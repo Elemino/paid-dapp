@@ -58,6 +58,7 @@ export const getContractTemplate = (contractName:String) :contractTemplate => {
             case contractsTemplates.TemplateConsultingAgreement:
                 title = 'CONSULTING AGREEMENT';
                 contractTemplate = ConsultingAgreement;
+                dataName = 'consultingAgreementData';
                 break;
         
             case contractsTemplates.TemplateReferalAgreement:
