@@ -250,6 +250,13 @@ const ConsultingAgreementForm: FC<{
 
     useEffect(
         () => {
+            setIsLastSlide(false);
+        },
+        [onClose]
+    );
+
+    useEffect(
+        () => {
             const bootstrapAsync = async () => {
                 await slidesRef.current?.update();
                 await slidesRef.current?.lockSwipeToPrev(true);
